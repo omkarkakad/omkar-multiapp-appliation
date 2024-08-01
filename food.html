@@ -1,0 +1,95 @@
+<html>
+<head>
+<title> My Food Application </title>
+<style>
+*{font-size:40px;}
+body{background-color:linen;}
+h1{background-color:black;color:white;width:50%;border-radius:40px;}
+.btn{background-color:black;color:white;width:30%;border-radius:40px;}
+.btn:hover{color:red;}
+.nav{background-color:black;}
+.nav a{color:red;text-decoration:none;margin:5%;}
+</style>
+
+</head>
+<body>
+<center>
+	<div class="nav">
+		<a href="index.html">Languges</a>
+		<a href="choice.html">Choices</a>
+		<a href="food.html">Food</a>
+		<a href="about.html">About</a>
+
+
+	</div>
+	<h1> Food App By Omkar </h1>
+	<form onsubmit="show()">
+	<input type="text" placeholder="Enter name" id="name"/>
+	<br><br>
+	<input type="radio" name="c" id="ni"/>North Indian
+	<input type="radio" name="c" id="si" checked=true/>South Indian
+	<input type="radio" name="c" id="ff"/>Fast Food
+	<br><br>
+	<input type="submit"/>
+
+	</form>
+	<h2 id="msg"/>
+	<script>
+		function show()
+		{
+			event.preventDefault();
+			let name=document.getElementById("name");
+			let ni=document.getElementById("ni");
+			let si=document.getElementById("si");
+			let ff=document.getElementById("ff");
+			let msg=document.getElementById("msg");
+			
+			let n=name.value;
+		
+			if (n==="")
+			{
+				alert("u did not enter the name");
+				msg.innerHTML="";
+				name.focus();
+				return;
+
+			}
+			if (n.trim()==="")
+			{
+				alert("name cannot be blank");
+				msg.innerHTML="";	
+				name.value="";
+				name.focus();
+				return;
+
+			}
+			if (! n.match("^[A-z ]+$"))
+			{
+				alert("name shud contain only alphabets");
+				msg.innerHTML="";
+				name.value="";
+				name.focus();
+				return;
+
+			}
+
+			let c="";
+			if (ni.checked)	c="North Indian";
+			else if (si.checked)	c="South Indian";
+			else 		c="Fast Food";
+			let ans="name= " + n + " choice= " + c;
+			msg.innerHTML=ans;
+			
+		
+
+		}
+
+
+	</script>
+</center>
+
+
+</body>
+
+
+</html>

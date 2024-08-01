@@ -1,0 +1,82 @@
+<html>
+<head>
+<title> My Language Application </title>
+<style>
+*{font-size:40px;}
+body{background-color:linen;}
+h1{background-color:black;color:white;width:50%;border-radius:40px;}
+.btn{background-color:black;color:white;width:20%;border-radius:40px;}
+.btn:hover{color:red;}
+.nav{background-color:black;}
+.nav a{color:red;text-decoration:none;margin:5%;}
+
+</style>
+
+</head>
+<body>
+<center>
+	<div class="nav">
+		<a href="index.html">Languges</a>
+		<a href="choice.html">Choices</a>
+		<a href="food.html">Food</a>
+		<a href="about.html">About</a>
+
+	</div>
+	<h1> Languages Application </h1>
+	<form onsubmit="find()">
+	<input type="text" placeholder="Enter ur name" id="name"/>
+	<br/><br/>
+	<input type="checkbox" id="python" checked=true/>Python
+	<input type="checkbox" id="js"/>Js
+	<input type="checkbox" id="java"/>Java
+	<br><br>
+	<input type="submit" class="btn"/>
+	</form>
+	<h2 id="msg"/>
+	
+	<script>		
+		
+            function find() {
+                event.preventDefault();
+                let name = document.getElementById("name");
+                let python = document.getElementById("python");
+                let java = document.getElementById("java");
+                let javascript = document.getElementById("javascript");
+                let msg = document.getElementById("msg");
+                
+                let n = name.value;
+            
+                if (n === "") {
+                    alert("You did not enter the name");
+                    msg.innerHTML = "";
+                    name.focus();
+                    return;
+                }
+                if (n.trim() === "") {
+                    alert("Name cannot be blank");
+                    msg.innerHTML = "";    
+                    name.value = "";
+                    name.focus();
+                    return;
+                }
+                if (!n.match("^[A-z ]+$")) {
+                    alert("Name should contain only alphabets");
+                    msg.innerHTML = "";
+                    name.value = "";
+                    name.focus();
+                    return;
+                }
+
+                let lang = "";
+                if (python.checked)	lang += " Python";
+                if (java.checked)	lang += " Java";
+                if (js.checked)	lang += " Javascript";
+                if (!python.checked && !java.checked && !js.checked) lang = "Please learn something";
+
+                let ans = "Name: " + n + " | Languages: " + lang;
+                msg.innerHTML = ans;
+            }
+        </script>
+    </center>
+</body>
+</html>

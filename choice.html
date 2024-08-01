@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>  My Engg Application </title>
+<style>
+*{font-size:40px;}
+body{background-color:linen;}
+h1{background-color:black;color:white;width:50%;border-radius:40px;}
+.btn{background-color:black;color:white;width:30%;border-radius:40px;}
+.btn:hover{color:red;}
+.nav{background-color:black;}
+.nav a{color:red;text-decoration:none;margin:5%;}
+</style>
+
+</head>
+<body>
+<center>
+	<div class="nav">
+		<a href="index.html">Languges</a>
+		<a href="choice.html">Choices</a>
+		<a href="food.html">Food</a>
+		<a href="about.html">About</a>
+
+
+	</div>
+	<h1> My Engg Application </h1>
+	<form onsubmit="show()">
+	<input type="text" placeholder="Enter ur name" id="name"/>
+	<br><br>
+	<label for="year">Choose Year</label>
+	<select id="year">
+		<option value="Fe">FE</option>
+		<option value="Se">SE</option>
+		<option value="Te">TE</option>
+		<option value="Be">BE</option>
+	</select>
+	<br><br>
+	<input type="submit" class="btn"/>
+
+
+	</form>
+	<h2 id="msg"></h2>
+	<script>
+		function show()
+		{
+			event.preventDefault();
+			
+			let name=document.getElementById("name");
+			let year=document.getElementById("year");
+
+			let msg=document.getElementById("msg");
+			
+			let n=name.value;
+		
+			if (n==="")
+			{
+				alert("u did not enter the name");
+				msg.innerHTML="";
+				name.focus();
+				return;
+
+			}
+			if (n.trim()==="")
+			{
+				alert("name cannot be blank");
+				msg.innerHTML="";	
+				name.value="";
+				name.focus();
+				return;
+
+			}
+			if (! n.match("^[A-z ]+$"))
+			{
+				alert("name shud contain only alphabets");
+				msg.innerHTML="";
+				name.value="";
+				name.focus();
+				return;	
+			}
+		
+			let y=year.value;
+			let ans="Name = " + n + " year = " + y;
+			msg.innerHTML=ans;		
+
+		}
+
+	</script>
+</center>
+
+
+</body>
+
+
+</html>
